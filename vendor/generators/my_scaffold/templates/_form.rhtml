@@ -1,0 +1,16 @@
+<div class="fieldset">
+	<h2><%=singular_name.titleize%></h2>
+	<fieldset>
+<%%= error_messages_for '<%= singular_name %>' %>
+
+  <%- model.content_columns.each do |column| -%>
+	<p><label for="<%= singular_name %>_<%= column.name %>"><%= column.human_name %></label>
+    <%%= input("<%= singular_name %>", "<%= column.name %>") %></p><br>
+
+  <%- end -%>
+<p>
+<%%= submit_tag "Submit" %>
+</p>
+
+</fieldset>
+</div>

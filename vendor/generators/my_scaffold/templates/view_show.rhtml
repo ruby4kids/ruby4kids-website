@@ -1,0 +1,15 @@
+
+<div class="fieldset">
+	<fieldset>
+    <%- model.content_columns.each do |column| -%>
+		<p><label><%= column.human_name %></label>
+      <%%= h @<%= singular_name %>.<%= column.name %> %></p></br>
+    <%- end -%>
+</fieldset>
+</div>
+
+
+<div>
+	<%%= link_to 'Edit', :action => 'edit<%= suffix %>', :id => @<%= singular_name %> %> |
+	<%%= link_to 'Back', :action => 'list<%= suffix %>' %>
+</div>

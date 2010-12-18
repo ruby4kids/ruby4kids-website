@@ -1,0 +1,38 @@
+<ul>
+	<li>
+	  <h2><%= AppConstant.config["application"] %></h2>
+  	<ul>
+  	  <li><%= link_to "About", :controller => "welcome", :action => "about" %></li>
+  	  <li><%= link_to "Help", :controller => "welcome", :action => "help" %></li>
+  	</ul>
+	</li>
+</ul>
+<ul>
+	<li>
+	  <h2>Admin</h2>
+  	<ul>
+    	<li><%= link_to "People", :controller => 'people', :action => 'list' %></li>
+    	<li><%= link_to "Accounts", :controller => 'accounts', :action => 'list' %></li>
+    	<li><%= link_to "Roles", :controller => 'roles', :action => 'list' %></li>
+  	</ul>
+	</li>
+</ul>
+<ul>
+	<li>
+	  <h2>Website</h2>
+  	<ul>
+    	<li><%= link_to "Web Pages", :controller => 'web_pages', :action => 'list' %></li>
+    	<li><%= link_to "Layouts", :controller => 'page_layouts', :action => 'list' %></li>
+			<li><%= link_to "Pictures", :controller => 'pictures', :action => 'list' %></li>
+			<li><%= link_to "Attachments", :controller => 'attachments', :action => 'list' %></li>
+  	</ul>
+	</li>
+</ul>
+<ul>
+	<li>
+	  <h2><%= @current_account.person.full_name rescue nil %></h2>
+  	<ul>	
+  	  <li><%= link_to "Logout", :controller => 'login', :action => 'logout' %></li>
+  	</ul>
+	</li>
+</ul>

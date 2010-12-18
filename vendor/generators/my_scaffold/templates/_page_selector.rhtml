@@ -1,0 +1,13 @@
+<div style="margin-bottom: 1em;">
+  <%% if page.paginator.last.number > 1 %>
+  	<%% form_tag({:controller => controller, :action => action}, :method => :get) do %>	
+  		<%% pages = Array.new(page.paginator.last.number)%>
+  		<%% pages.each_index {|index| pages[index] = index + 1} %>
+		  <%%= build_hidden_fields(params) %>
+
+			<%%= pluralize count, "Record" %> | Page:&nbsp;<%%= select_tag('page', options_for_select(pages, page.number),:onchange => "this.form.submit()")%> 
+  	<%% end %>
+  <%% else %>
+  	<span><%%= pluralize count, "Record" %></span>
+  <%% end %>  
+</div>

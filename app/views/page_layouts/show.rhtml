@@ -1,0 +1,19 @@
+<div>
+	<%= link_to 'Edit', :action => 'edit', :id => @page_layout %> |
+	<%= link_to 'Back', :action => 'list' %>
+</div>
+
+<div class="fieldset">
+	<fieldset>
+		<p><label>Name</label>
+      <%= h @page_layout.name %></p></br>
+</fieldset>
+</div>
+
+<pre name="code" class="xml"><%=@page_layout.content %></pre>
+
+
+<div>
+	<%= link_to 'Edit', :action => 'edit', :id => @page_layout %> |
+	<%= link_to 'Back', :action => 'list' %>
+</div>

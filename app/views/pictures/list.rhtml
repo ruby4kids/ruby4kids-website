@@ -1,0 +1,47 @@
+<div style="margin-bottom: 2em;">
+  <div style="margin-bottom: 1em;">
+    <h4>Pictures (<%= link_to_function "search", "Element.toggle('search-form')" %>)</h4>
+    <%= render(:partial =>"shared/page_selector", :locals => {:page => @pager.current, :controller => 'pictures', :action => 'list', :count => @count})%>    
+  </div>
+
+  <div style="margin-bottom: 1em; display: none;" id="search-form">
+	<div class="fieldset">
+		<fieldset>
+    <% form_tag(:action => "list") do %>
+        <%= render :partial => "query_form" %>
+				<p><%= submit_tag "Search" %></p></br>
+		</fieldset>
+		</div>
+    <% end %>
+  </div>
+
+
+  <div class="listing">
+    <table>
+      <thead>
+        <tr>
+          <th><%= link_to 'New', :action => 'new' %></th>
+          <th>Content type</th>
+          <th>Filename</th>
+          <th>Size</th>
+          <th>Created at</th>
+					<th>url</th>
+          <th>&nbsp;</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @items.each do |picture| %>
+          <tr class="<%= cycle('odd', 'even') %>">
+            <td><%= link_to 'Show', :action => 'show', :id => picture %></td>
+            <td><%=h picture.content_type %></td>
+            <td><%=h picture.filename %></td>
+            <td><%=number_to_human_size picture.size %></td>
+            <td><%=h picture.created_at %></td>
+						<td><%=h "<img src=\"#{url_for(:controller => 'public', :action => 'picture', :id => picture.id)}\">"%></td>
+            <td><%= link_to 'Destroy', { :action => 'destroy', :id => picture }, :confirm => 'Are you sure?', :method => :post %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>    
+  </div>
+</div>

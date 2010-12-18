@@ -1,0 +1,21 @@
+<div class="fieldset">
+	<h2>Page Layout</h2>
+	<fieldset>
+<%= error_messages_for 'page_layout' %>
+<p>
+<%= submit_tag "Save" %>
+</p>
+
+	<p><label for="page_layout_name">Name</label>
+    <%= input("page_layout", "name") %></p><br>
+
+	<p><label for="page_layout_content">Content</label>
+    <%= text_area("page_layout", "content", :cols => 90, :rows => 60) %></p><br>
+
+
+<p>
+<%= submit_tag "Save" %>
+</p>
+
+</fieldset>
+</div>

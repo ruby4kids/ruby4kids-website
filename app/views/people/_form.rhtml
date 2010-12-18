@@ -1,0 +1,59 @@
+<%= error_messages_for 'person' %>
+
+<table width="100%">
+  <tr>
+    <th width="15%"><label for="person_first">First</label></th>
+    <td width="85%"><%= input("person", "first") %></td>
+  </tr>
+  <tr>
+    <th width="15%"><label for="person_last">Last</label></th>
+    <td width="85%"><%= input("person", "last") %></td>
+  </tr>
+  <tr>
+    <th width="15%"><label for="person_email">Email</label></th>
+    <td width="85%"><%= input("person", "email") %></td>
+  </tr>
+  <tr>
+    <th width="15%"><label for="person_title">Title</label></th>
+    <td width="85%"><%= input("person", "title") %></td>
+  </tr>
+  <tr>
+    <th width="15%"><label for="person_category">Category</label></th>
+    <td width="85%"><%= input("person", "category") %></td>
+  </tr>
+  <tr>
+    <th width="15%"><label for="person_phone">Phone</label></th>
+    <td width="85%"><%= input("person", "phone") %></td>
+  </tr>
+  <tr>
+    <th width="15%"><label for="person_fax">Fax</label></th>
+    <td width="85%"><%= input("person", "fax") %></td>
+  </tr>
+  <tr>
+    <th width="15%"><label for="person_comment">Comment</label></th>
+    <td width="85%"><%= input("person", "comment") %></td>
+  </tr>
+  <tr>
+    <th width="15%"><label for="person_status">Status</label></th>
+    <td width="85%"><%= input("person", "status") %></td>
+  </tr>
+  <tr>
+    <th width="15%"><label for="person_created_by">Created by</label></th>
+    <td width="85%"><%= input("person", "created_by") %></td>
+  </tr>
+  <tr>
+    <th width="15%"><label for="person_updated_by">Updated by</label></th>
+    <td width="85%"><%= input("person", "updated_by") %></td>
+  </tr>
+  <tr>
+    <th width="15%"><label for="person_created_at">Created at</label></th>
+    <td width="85%"><%= input("person", "created_at") %></td>
+  </tr>
+  <tr>
+    <th width="15%"><label for="person_updated_at">Updated at</label></th>
+    <td width="85%"><%= input("person", "updated_at") %></td>
+  </tr>
+  <tr>
+    <td colspan="2"><%= submit_tag "Submit" %></td>
+  </tr>
+</table>

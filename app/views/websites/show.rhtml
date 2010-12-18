@@ -1,0 +1,17 @@
+
+<div class="fieldset">
+	<fieldset>
+		<p><label>Name</label>
+      <%= h @website.name %></p></br>
+		<p><label>Created at</label>
+      <%= h @website.created_at %></p></br>
+		<p><label>Updated at</label>
+      <%= h @website.updated_at %></p></br>
+</fieldset>
+</div>
+
+
+<div>
+	<%= link_to 'Edit', :action => 'edit', :id => @website %> |
+	<%= link_to 'Back', :action => 'list' %>
+</div>

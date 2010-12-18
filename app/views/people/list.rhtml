@@ -1,0 +1,62 @@
+<div style="margin-bottom: 2em;">
+  <div style="margin-bottom: 1em;">
+    <h4>People (<%= link_to_function "search", "Element.toggle('search-form')" %>)</h4>
+    <%= render(:partial =>"shared/page_selector", :locals => {:page => @pager.current, :controller => 'people', :action => 'list', :count => @count})%>    
+  </div>
+
+  <div style="margin-bottom: 1em; display: none;" id="search-form">
+    <% form_tag(:action => "list") do %>
+      <table width="100%">
+        <%= render :partial => "query_form" %>
+        <tr>
+          <td><%= submit_tag "Search" %></td>
+        </tr>
+      </table>
+    <% end %>
+  </div>
+
+  <div class="listing">
+    <table width="100%">
+      <thead>
+        <tr>
+          <th><%= link_to 'New', :action => 'new' %></th>
+          <th>First</th>
+          <th>Last</th>
+          <th>Email</th>
+          <th>Title</th>
+          <th>Category</th>
+          <th>Phone</th>
+          <th>Fax</th>
+          <th>Comment</th>
+          <th>Status</th>
+          <th>Created by</th>
+          <th>Updated by</th>
+          <th>Created at</th>
+          <th>Updated at</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @items.each do |person| %>
+          <tr class="<%= cycle('odd', 'even') %>">
+            <td><%= link_to 'Show', :action => 'show', :id => person %> | <%= link_to 'Edit', :action => 'edit', :id => person %></td>
+            <td><%=h person.first %></td>
+            <td><%=h person.last %></td>
+            <td><%=h person.email %></td>
+            <td><%=h person.title %></td>
+            <td><%=h person.category %></td>
+            <td><%=h person.phone %></td>
+            <td><%=h person.fax %></td>
+            <td><%=h person.comment %></td>
+            <td><%=h person.status %></td>
+            <td><%=h full_name(person.created_by) %></td>
+            <td><%=h person.updated_by %></td>
+            <td><%=h person.created_at %></td>
+            <td><%=h person.updated_at %></td>
+            <td><%= link_to 'Destroy', { :action => 'destroy', :id => person }, :confirm => 'Are you sure?', :method => :post %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>    
+  </div>
+</div>

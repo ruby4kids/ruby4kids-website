@@ -1,0 +1,21 @@
+<div class="fieldset">
+	<h2>Web Page</h2>
+	<fieldset>
+<%= error_messages_for 'web_page' %>
+<%= submit_tag "Save" %>
+	<p><label for="web_page_name">Name</label>
+    <%= input("web_page", "name") %></p><br>
+		
+		<p><label for="web_page_name">Layout</label>
+	    <%= select("web_page", "page_layout_id", @page_layouts) %></p><br>
+	
+	<p><label for="web_page_content">Content</label>
+    <%= text_area("web_page", "content", :cols => 100, :rows => 60, :class => "mono") %></p><br>
+
+
+<p>
+<%= submit_tag "Save" %>
+</p>
+
+</fieldset>
+</div>

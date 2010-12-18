@@ -1,0 +1,31 @@
+
+<div class="fieldset">
+	<fieldset>
+		<p><label>Content type</label>
+      <%= h @picture.content_type %></p></br>
+		<p><label>Filename</label>
+      <%= h @picture.filename %></p></br>
+		<p><label>Thumbnail</label>
+      <%= h @picture.thumbnail %></p></br>
+		<p><label>Size</label>
+      <%= h @picture.size %></p></br>
+		<p><label>Width</label>
+      <%= h @picture.width %></p></br>
+		<p><label>Height</label>
+      <%= h @picture.height %></p></br>
+		<p><label>Created at</label>
+      <%= h @picture.created_at %></p></br>
+		<p><label>Updated at</label>
+      <%= h @picture.updated_at %></p></br>
+</fieldset>
+<p>&nbsp;</p>
+<fieldset>
+	<img src="<%=url_for(:controller => 'public', :action => 'picture', :id => @picture.id)%>">
+</fieldset>
+</div>
+
+
+<div>
+	<%= link_to 'Edit', :action => 'edit', :id => @picture %> |
+	<%= link_to 'Back', :action => 'list' %>
+</div>

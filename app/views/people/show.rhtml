@@ -1,0 +1,61 @@
+<table width="100%" style="margin-bottom: 2em;">
+  <tbody>
+    <tr>
+      <th width="15%">First</th>
+      <td width="85%"><%= h @person.first %></td>
+    </tr>
+    <tr>
+      <th width="15%">Last</th>
+      <td width="85%"><%= h @person.last %></td>
+    </tr>
+    <tr>
+      <th width="15%">Email</th>
+      <td width="85%"><%= h @person.email %></td>
+    </tr>
+    <tr>
+      <th width="15%">Title</th>
+      <td width="85%"><%= h @person.title %></td>
+    </tr>
+    <tr>
+      <th width="15%">Category</th>
+      <td width="85%"><%= h @person.category %></td>
+    </tr>
+    <tr>
+      <th width="15%">Phone</th>
+      <td width="85%"><%= h @person.phone %></td>
+    </tr>
+    <tr>
+      <th width="15%">Fax</th>
+      <td width="85%"><%= h @person.fax %></td>
+    </tr>
+    <tr>
+      <th width="15%">Comment</th>
+      <td width="85%"><%= h @person.comment %></td>
+    </tr>
+    <tr>
+      <th width="15%">Status</th>
+      <td width="85%"><%= h @person.status %></td>
+    </tr>
+    <tr>
+      <th width="15%">Created by</th>
+      <td width="85%"><%= h @person.created_by %></td>
+    </tr>
+    <tr>
+      <th width="15%">Updated by</th>
+      <td width="85%"><%= h @person.updated_by %></td>
+    </tr>
+    <tr>
+      <th width="15%">Created at</th>
+      <td width="85%"><%= h @person.created_at %></td>
+    </tr>
+    <tr>
+      <th width="15%">Updated at</th>
+      <td width="85%"><%= h @person.updated_at %></td>
+    </tr>
+  </tbody>
+</table>
+
+<div>
+	<%= link_to 'Edit', :action => 'edit', :id => @person %> |
+	<%= link_to 'Back', :action => 'list' %>
+</div>

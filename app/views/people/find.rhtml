@@ -1,0 +1,11 @@
+<div style="margin-bottom: 2em;">
+  <h4>Search</h4>
+  <% form_tag(:action => "list") do %>
+    <table width="100%" id="search-form">
+      <%= render :partial => "query_form" %>
+      <tr>
+        <td><%= submit_tag "Search" %></td>
+      </tr>
+    </table>
+  <% end %>
+</div>

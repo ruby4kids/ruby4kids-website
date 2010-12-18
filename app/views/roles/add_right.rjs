@@ -1,0 +1,2 @@
+page.insert_html :bottom, "rights", %{<tr id="right-#{@right.controller}-#{@right.action}"><td>#{@right.controller}</td><td>#{@right.action}</td><td>} + link_to_remote("Delete", :url => {:action => "remove_right", :id => @role.id, :right_id => @right.id}, :confirm => "Are you sure you want to remove #{@right.name} from #{@role.name}?") + %{</td></tr>}
+page.visual_effect :highlight, "right-#{@right.controller}-#{@right.action}", :duration => 1

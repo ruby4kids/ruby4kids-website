@@ -1,0 +1,35 @@
+<div class="fieldset">
+	<h2>Picture</h2>
+	<fieldset>
+<%= error_messages_for 'picture' %>
+
+	<p><label for="picture_content_type">Content type</label>
+    <%= input("picture", "content_type") %></p><br>
+
+	<p><label for="picture_filename">Filename</label>
+    <%= input("picture", "filename") %></p><br>
+
+	<p><label for="picture_thumbnail">Thumbnail</label>
+    <%= input("picture", "thumbnail") %></p><br>
+
+	<p><label for="picture_size">Size</label>
+    <%= input("picture", "size") %></p><br>
+
+	<p><label for="picture_width">Width</label>
+    <%= input("picture", "width") %></p><br>
+
+	<p><label for="picture_height">Height</label>
+    <%= input("picture", "height") %></p><br>
+
+	<p><label for="picture_created_at">Created at</label>
+    <%= input("picture", "created_at") %></p><br>
+
+	<p><label for="picture_updated_at">Updated at</label>
+    <%= input("picture", "updated_at") %></p><br>
+
+<p>
+<%= submit_tag "Submit" %>
+</p>
+
+</fieldset>
+</div>

@@ -1,0 +1,10 @@
+<div style="margin-bottom: 2em;">
+  <% form_tag :action => 'update', :id => @account do %>
+    <%= render :partial => 'form' %>
+  <% end %>  
+</div>
+
+<div>
+  <%= link_to 'Show', :action => 'show', :id => @account %> |
+  <%= link_to 'Back', :action => 'list' %>  
+</div>

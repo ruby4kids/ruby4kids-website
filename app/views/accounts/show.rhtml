@@ -1,0 +1,29 @@
+<table width="100%" style="margin-bottom: 2em;">
+  <tbody>
+    <tr>
+      <th width="15%">Username</th>
+      <td width="85%"><%= h @account.username %></td>
+    </tr>
+    <tr>
+      <th width="15%">Hashed password</th>
+      <td width="85%"><%= h @account.hashed_password %></td>
+    </tr>
+    <tr>
+      <th width="15%">Salt</th>
+      <td width="85%"><%= h @account.salt %></td>
+    </tr>
+    <tr>
+      <th width="15%">Email</th>
+      <td width="85%"><%= h @account.email %></td>
+    </tr>
+    <tr>
+      <th width="15%">Status</th>
+      <td width="85%"><%= h @account.status %></td>
+    </tr>
+  </tbody>
+</table>
+
+<div>
+	<%= link_to 'Edit', :action => 'edit', :id => @account %> |
+	<%= link_to 'Back', :action => 'list' %>
+</div>

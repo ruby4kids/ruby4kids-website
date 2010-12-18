@@ -1,0 +1,46 @@
+<div style="margin-bottom: 2em;">
+  <div style="margin-bottom: 1em;">
+    <h4>Accounts (<%= link_to_function "search", "Element.toggle('search-form')" %>)</h4>
+    <%= render(:partial =>"shared/page_selector", :locals => {:page => @pager.current, :controller => 'accounts', :action => 'list', :count => @count})%>    
+  </div>
+
+  <div style="margin-bottom: 1em; display: none;" id="search-form">
+    <% form_tag(:action => "list") do %>
+      <table width="100%">
+        <%= render :partial => "query_form" %>
+        <tr>
+          <td><%= submit_tag "Search" %></td>
+        </tr>
+      </table>
+    <% end %>
+  </div>
+
+  <div class="listing">
+    <table width="100%">
+      <thead>
+        <tr>
+          <th><%= link_to 'New', :action => 'new' %></th>
+          <th>Username</th>
+          <th>Hashed password</th>
+          <th>Salt</th>
+          <th>Email</th>
+          <th>Status</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @items.each do |account| %>
+          <tr class="<%= cycle('odd', 'even') %>">
+            <td><%= link_to 'Show', :action => 'show', :id => account %> | <%= link_to 'Edit', :action => 'edit', :id => account %></td>
+            <td><%=h account.username %></td>
+            <td><%=h account.hashed_password %></td>
+            <td><%=h account.salt %></td>
+            <td><%=h account.email %></td>
+            <td><%=h account.status %></td>
+            <td><%= link_to 'Destroy', { :action => 'destroy', :id => account }, :confirm => 'Are you sure?', :method => :post %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>    
+  </div>
+</div>

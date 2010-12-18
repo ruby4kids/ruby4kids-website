@@ -1,0 +1,18 @@
+<div class="main">
+  <h2>Create Role</h2>
+  <%= error_messages_for 'role' %>
+
+  <% form_tag :action => 'create' do %>
+    <table>
+      <%= render :partial => 'form' %>
+      <tfoot>
+        <tr>
+          <td colspan="2">
+            <%= submit_tag "Create" %> 
+            <%= button_to_function 'Cancel', "location.href = '/utility/role/index'" %>
+          </td>
+        </tr>
+      </tfoot>
+    </table>
+  <% end %>
+</div>
