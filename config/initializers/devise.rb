@@ -3,9 +3,9 @@ Devise.setup do |config|
   require 'devise/orm/active_record'
 
   config.authentication_keys  = [:login]
-  config.mailer_sender        = 'noreply@integrisati.com' # TODO: YAML-configurable
+  config.mailer_sender        = 'noreply@ruby4kids.com'
   config.http_authenticatable = false
-  config.pepper               = File.read(File.expand_path('../../secrets/devise_pepper', __FILE__)) || ENV['INTEGRISATI_DEVISE_PEPPER']
+  config.pepper               = "ea9f1901456e5e1212f3def6d61875d1cfdeb56d75ecaab2996ef708645e5ac115586cab70ebce639d054aec8526cc485f5f1f5535d00682e41fbf4e7a47547d"
   config.stretches            = 10
   config.remember_for         = 2.weeks
   config.password_length      = 6..20
