@@ -8,4 +8,6 @@ Ruby4Kids::Application.routes.draw do
 
   resources :users
 
+  root to: 'dashboard#index'
+
 end
