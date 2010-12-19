@@ -22,7 +22,7 @@ module LayoutHelper
     sep = ' - '
     controller_title = [controller.controller_name.titleize, controller.action_name.titleize].join(sep)
     view_title = @title ? (@title.is_a?(Array) ? @title.join(sep) : @title) : controller_title
-    raw(raw_title ? raw_title : [t(:application), view_title].join(sep))
+    raw(raw_title ? raw_title : [t(:site), view_title].join(sep))
   end
 
   def active_section_class(section)
