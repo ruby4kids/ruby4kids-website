@@ -1,0 +1,96 @@
+/*==============================================================================
+GRID STYLES
+==============================================================================*/
+
+@import "compass/utilities/general/float";
+@import "compass/utilities/general/clearfix";
+
+$grid_columns:        16   !default;
+$grid_width:          40px !default;
+$grid_margin:         20px !default;
+$grid_outer_width:    $grid_width + $grid_margin;
+$grid_container_size: $grid_outer_width * $grid_columns - $grid_margin;
+
+@mixin grid_container {
+  width: $grid_container_size;
+  margin: 0 auto;
+  @include clearfix;
+}
+
+@mixin grid_last_column {
+  margin-right: 0;
+}
+
+@mixin grid_column($n, $last: false) {
+  @include grid_column_base($last);
+  @include grid_span($n);
+}
+
+@mixin grid_span($n, $override: false) {
+  $width: $grid_width * $n + $grid_margin * ($n - 1);
+  @if $override {
+    width: $width !important;
+  } @else {
+    width: $width;
+  }
+}
+
+@mixin grid_column_base($last: false) {
+  @include float-left;
+  @if $last {
+    @include grid_last_column;
+  } @else {
+    margin-right: $grid_margin;
+  }
+  * html & {
+    overflow-x: hidden;
+  }
+}
+
+@mixin grid_append($n) {
+  padding-right: $grid_outer_width * $n;
+}
+
+@mixin grid_prepend($n) {
+  padding-left: $grid_outer_width * $n;
+}
+
+@mixin grid_append_bottom($amount: 1.5em) {
+  margin-bottom: $amount;
+}
+
+@mixin grid_prepend_top($amount: 1.5em) {
+  margin-top: $amount;
+}
+
+@mixin grid_base {
+  @include float-left;
+  position: relative;
+}
+
+@mixin grid_pull_margins($n, $last: alse) {
+  @if $last {
+    margin-left: -$grid_outer_width * $n + $grid_margin;
+  } @else {
+    margin-left: -$grid_outer_width * $n;
+  }
+}
+
+@mixin grid_pull_column($n, $last: false) {
+  @include grid_pull_base;
+  @include grid_pull_margins($n, $last);
+}
+
+@mixin grid_push_base {
+  @include float-right;
+  position: relative;
+}
+
+@mixin grid_push_margins($n) {
+  margin: 0 (-$grid_outer_width * $n) 1.5em $grid_outer_width * $n;
+}
+
+@mixin grid_push_column($n) {
+  @include grid_push_base;
+  @include grid_push_margins($n);
+}
