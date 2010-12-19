@@ -1,0 +1,10 @@
+.bundle
+.DS_Store
+*.swp
+config/database.yml
+config/sphinx.*conf
+config/sphinx.yml
+db/sphinx
+log/*.log
+public/assets
+tmp/**/*

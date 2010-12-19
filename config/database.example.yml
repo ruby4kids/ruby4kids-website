@@ -1,0 +1,20 @@
+common: &common
+  adapter:   mysql2
+  encoding:  utf8
+  reconnect: false
+  pool:      5
+  username:  root
+  password:
+  socket:    /tmp/mysql.sock
+
+development:
+  <<: *common
+  database: ruby4kids_development
+
+test:
+  <<: *common
+  database: ruby4kids_test
+
+production:
+  <<: *common
+  database: ruby4kids_production
