@@ -4,6 +4,7 @@
 config/database.yml
 config/sphinx.*conf
 config/sphinx.yml
+coverage
 db/sphinx
 log/*.log
 public/assets
