@@ -1,0 +1,23 @@
+<%- layout_options title: "Change Your Password", body_class: 'passwords' -%>
+<section id="site_main_passwords_edit" class="site-main-content">
+  <h1>Change Your Password</h1>
+
+  <%= form_for(resource, as: :user, url: user_password_path, html: { method: :put }) do |f| %>
+    <%= devise_error_messages! %>
+    <%= f.hidden_field :reset_password_token %>
+
+    <p>
+      <%= f.label :password %>
+      <%= f.password_field :password %>
+    </p>
+
+    <p>
+      <%= f.label :password_confirmation %>
+      <%= f.password_field :password_confirmation %>
+    </p>
+
+    <p><%= f.submit "Change my password" %></p>
+  <% end %>
+
+  <%= render :partial => 'users/auth_links' %>
+</section>

@@ -1,0 +1,17 @@
+<%- layout_options title: "Resend Confirmation Instructions", body_class: 'confirmations' -%>
+<section id="site_main_confirmations_new" class="site-main-content">
+  <h1>Resend Confirmation Instructions</h1>
+
+  <%= form_for(resource, as: :user, url: user_confirmation_path) do |f| %>
+    <%= devise_error_messages! %>
+
+    <p>
+      <%= f.label :email %>
+      <%= f.text_field :email %>
+    </p>
+
+    <p><%= f.submit "Resend confirmation instructions" %></p>
+  <% end %>
+
+  <%= render :partial => 'users/auth_links' %>
+</section>

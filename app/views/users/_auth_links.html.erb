@@ -1,0 +1,8 @@
+<nav id="auth_links">
+  <ul>
+    <%- if controller_name != 'sessions' %><li><%= link_to "Sign in", new_user_session_path %></li><% end -%>
+    <%- if controller_name != 'passwords' %><li><%= link_to "Forgot your password?", new_user_password_path %></li><% end -%>
+    <%- if controller_name != 'confirmations' %><li><%= link_to "Didn't receive confirmation instructions?", new_user_confirmation_path %></li><% end -%>
+    <%- if controller_name != 'unlocks' %><li><%= link_to "Didn't receive unlock instructions?", new_user_unlock_path %></li><% end -%>
+  </ul>
+</nav>
