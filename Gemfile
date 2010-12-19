@@ -1,5 +1,6 @@
 source 'http://rubygems.org'
 
+gem 'carrierwave'
 gem 'compass'
 gem 'devise', '1.2.rc'
 gem 'escape_utils'
