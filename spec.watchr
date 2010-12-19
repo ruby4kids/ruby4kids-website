@@ -24,7 +24,6 @@ end
 
 def run_suite
   run_all_specs
-  run_all_features
 end
 
 watch('spec/spec_helper\.rb') { run_all_specs }
