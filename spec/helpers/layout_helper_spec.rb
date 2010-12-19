@@ -33,17 +33,17 @@ describe LayoutHelper do
     end
 
     it "should be the controller name and action name when no title has been set" do
-      helper.title.should == "#{I18n.t(:spec)} - Foo - Bar"
+      helper.title.should == "Ruby4Kids - Foo - Bar"
     end
 
     it "should be the title if one has been set" do
       helper.title = "My View"
-      helper.title.should == "#{I18n.t(:spec)} - My View"
+      helper.title.should == "Ruby4Kids - My View"
     end
 
     it "should be the title joined by the separator if the title is an array" do
       helper.title = ["Baz", "Bat"]
-      helper.title.should == "#{I18n.t(:spec)} - Baz - Bat"
+      helper.title.should == "Ruby4Kids - Baz - Bat"
     end
 
     it "should be the raw title without the application title if one has been set" do
