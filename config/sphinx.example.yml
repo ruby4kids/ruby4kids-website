@@ -3,10 +3,10 @@ development:
   config_file:      "config/sphinx.conf"
   searchd_log_file: "log/searchd.development.log"
   query_log_file:   "log/searchd.development.query.log"
-  pid_file:         "log/searchd.development.pid"
+  pid_file:         "tmp/pids/searchd.development.pid"
 
 test:
   config_file:      "config/sphinx.test.conf"
   searchd_log_file: "log/searchd.test.log"
   query_log_file:   "log/searchd.test.query.log"
-  pid_file:         "log/searchd.test.pid"
+  pid_file:         "tmp/pids/searchd.test.pid"
