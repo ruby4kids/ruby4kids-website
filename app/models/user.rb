@@ -44,6 +44,14 @@ class User < ActiveRecord::Base
 
   attr_accessible :email, :login, :name, :password, :password_confirmation, :remember_me, :username
 
+  define_index do
+    indexes :username, sortable: true
+    indexes :email,    sortable: true
+    indexes :name,     sortable: true
+
+    has confirmed_at, created_at, locked_at, updated_at
+  end
+
   def self.find_for_database_authentication(conditions)
     auth_key = conditions[authentication_keys.first]
     where(['email = ? OR username = ?', auth_key, auth_key]).first
