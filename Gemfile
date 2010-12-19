@@ -15,6 +15,7 @@ gem 'will_paginate', '3.0.pre2'
 gem 'yajl-ruby'
 
 group :development, :test do
+  gem 'annotate', require: false
   gem 'factory_girl_rails', require: false
   gem 'faker', require: false
   gem 'shoulda', require: false

@@ -28,6 +28,7 @@ GEM
       activemodel (= 3.0.3)
       activesupport (= 3.0.3)
     activesupport (3.0.3)
+    annotate (2.4.0)
     arel (2.0.6)
     bcrypt-ruby (2.1.2)
     builder (2.1.2)
@@ -136,6 +137,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  annotate
   capistrano
   compass
   devise (= 1.2.rc)
