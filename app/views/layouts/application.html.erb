@@ -1,10 +1,41 @@
 <!DOCTYPE html>
-<html>
+<!--[if lt IE 7 ]> <html lang="en" class="no-js ie6"> <![endif]-->
+<!--[if IE 7 ]>    <html lang="en" class="no-js ie7"> <![endif]-->
+<!--[if IE 8 ]>    <html lang="en" class="no-js ie8"> <![endif]-->
+<!--[if IE 9 ]>    <html lang="en" class="no-js ie9"> <![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!--><html class="no-js" lang="en-US"><!--<![endif]-->
   <head>
-    <title>Ruby4Kids</title>
+    <meta charset="utf-8" />
+
+    <meta http-equiv="X-UA-COmpatible" content="IE=edge,chrome=1" />
+
+    <title><%= title %></title>
+    <meta name="description" content="" />
+
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+
     <%= csrf_meta_tag %>
+
+    <link rel="shortcut icon" href="/favicon.ico" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+
+    <%= include_stylesheets :global, media: 'all' %>
+    <%= include_stylesheets :handheld, media: 'handheld' %>
+
+    <%= include_javascripts :modernizr %>
   </head>
   <body>
-    <%= yield %>
+    <div id="site" role="application">
+      <header>
+        <h1>Ruby4Kids</h1>
+      </header>
+
+      <%= yield %>
+
+      <footer>
+      </footer>
+    </div>
+
+    <%= include_javascripts :application %>
   </body>
 </html>
