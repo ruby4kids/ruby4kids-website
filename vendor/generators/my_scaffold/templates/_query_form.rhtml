@@ -1,6 +1,0 @@
-<%- model.content_columns.each do |col| -%>
-<p>
-<label for="<%= singular_name %>_<%= col.name %>"><%= col.human_name %></label>
-<%%= auto_text_field "<%= singular_name %>", "<%= col.name %>" %></p></br>
-
-<%- end -%>

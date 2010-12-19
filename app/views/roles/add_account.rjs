@@ -1,3 +1,0 @@
-page.insert_html :bottom, "accounts", %{<tr id="acct-#{@account.username}"><td>#{@account.username}</td><td>} + link_to_remote("Delete", :url => {:action => "remove_account", :id => @role.id, :account_id => @account.id}, :confirm => "Are you sure you want to remove #{@account.username} from #{@role.name}?") + %{</td></tr>}
-page.visual_effect :highlight, "acct-#{@account.username}", :duration => 1
-page["account_username"].value = ""

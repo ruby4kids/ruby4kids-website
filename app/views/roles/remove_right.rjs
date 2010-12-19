@@ -1,1 +1,0 @@
-page.visual_effect(:fade, "right-#{@right.controller}-#{@right.action}", :duration => 1)
