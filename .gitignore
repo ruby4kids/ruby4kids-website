@@ -1,5 +1,6 @@
 .bundle
 .DS_Store
+.rvmrc
 *.swp
 config/database.yml
 config/sphinx.*conf
