@@ -39,4 +39,17 @@
 require 'spec_helper'
 
 describe User do
+
+  describe "finding for database authentication" do
+    before { @user = Factory(:confirmed_user) }
+
+    it "should find by email" do
+      User.find_for_database_authentication(login: @user.email).should == @user
+    end
+
+    it "should find by username" do
+      User.find_for_database_authentication(login: @user.username).should == @user
+    end
+  end
+
 end

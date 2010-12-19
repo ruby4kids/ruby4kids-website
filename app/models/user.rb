@@ -44,4 +44,9 @@ class User < ActiveRecord::Base
 
   attr_accessible :email, :login, :name, :password, :password_confirmation, :remember_me, :username
 
+  def self.find_for_database_authentication(conditions)
+    auth_key = conditions[authentication_keys.first]
+    where(['email = ? OR username = ?', auth_key, auth_key]).first
+  end
+
 end
