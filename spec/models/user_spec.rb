@@ -1,10 +1,9 @@
 # == Schema Information
-# Schema version: 20101219063520
+# Schema version: 20110102021039
 #
 # Table name: users
 #
 #  id                   :integer(4)      not null, primary key
-#  username             :string(255)     not null
 #  name                 :string(255)     not null
 #  email                :string(255)     default(""), not null
 #  encrypted_password   :string(128)     default(""), not null
@@ -29,7 +28,6 @@
 #
 # Indexes
 #
-#  index_users_on_username              (username) UNIQUE
 #  index_users_on_email                 (email) UNIQUE
 #  index_users_on_reset_password_token  (reset_password_token) UNIQUE
 #  index_users_on_confirmation_token    (confirmation_token) UNIQUE
@@ -39,17 +37,4 @@
 require 'spec_helper'
 
 describe User do
-
-  describe "finding for database authentication" do
-    before { @user = Factory(:confirmed_user) }
-
-    it "should find by email" do
-      User.find_for_database_authentication(login: @user.email).should == @user
-    end
-
-    it "should find by username" do
-      User.find_for_database_authentication(login: @user.username).should == @user
-    end
-  end
-
 end

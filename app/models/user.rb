@@ -1,10 +1,9 @@
 # == Schema Information
-# Schema version: 20101219063520
+# Schema version: 20110102021039
 #
 # Table name: users
 #
 #  id                   :integer(4)      not null, primary key
-#  username             :string(255)     not null
 #  name                 :string(255)     not null
 #  email                :string(255)     default(""), not null
 #  encrypted_password   :string(128)     default(""), not null
@@ -29,7 +28,6 @@
 #
 # Indexes
 #
-#  index_users_on_username              (username) UNIQUE
 #  index_users_on_email                 (email) UNIQUE
 #  index_users_on_reset_password_token  (reset_password_token) UNIQUE
 #  index_users_on_confirmation_token    (confirmation_token) UNIQUE
@@ -38,23 +36,35 @@
 
 class User < ActiveRecord::Base
 
-  devise :confirmable, :database_authenticatable, :lockable, :recoverable, :rememberable, :recoverable, :validatable
+  devise :confirmable, :database_authenticatable, :lockable, :omniauthable, :recoverable, :registerable, :rememberable, :recoverable, :validatable
 
-  attr_accessor :login
-
-  attr_accessible :email, :login, :name, :password, :password_confirmation, :remember_me, :username
+  attr_accessible :email, :name, :password, :password_confirmation, :remember_me
 
   define_index do
-    indexes :username, sortable: true
     indexes :email,    sortable: true
     indexes :name,     sortable: true
 
     has confirmed_at, created_at, locked_at, updated_at
   end
 
-  def self.find_for_database_authentication(conditions)
-    auth_key = conditions[authentication_keys.first]
-    where(['email = ? OR username = ?', auth_key, auth_key]).first
+  def self.find_for_facebook_oauth(auth_data, signed_in_resource=nil)
+    email = auth_data['extra']['user_hash']['email']
+    name = auth_data['extra']['user_hash']['name']
+    if user = User.find_by_email(email)
+      user
+    else
+      new_user = User.new(email: email, name: name, password: Devise.friendly_token[0,20])
+      new_user.skip_confirmation!
+      new_user.save!
+    end
+  end 
+
+  def self.new_with_session(params, session)
+    super.tap do |user|
+      if data = session["devise.facebook_data"] && session["devise.facebook_data"]["extra"]["user_hash"]
+        user.email = data["email"]
+      end
+    end
   end
 
 end
