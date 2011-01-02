@@ -1,8 +1,9 @@
 require File.expand_path('../boot', __FILE__)
-
 require 'rails/all'
-
 Bundler.require(:default, Rails.env) if defined?(Bundler)
+
+require 'yaml'
+APP_CONFIG = YAML.load_file(File.expand_path('../application.yml', __FILE__))
 
 module Ruby4Kids
   class Application < Rails::Application

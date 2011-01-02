@@ -16,10 +16,10 @@ set(:deploy_to)             { "/home/ruby4kids/deploy" }
 set :user,                  'ruby4kids'
 set :group,                 'ruby4kids'
 set :use_sudo,              false
-set :shared_children,       %w(config db db/sphinx log pids system)
+set :shared_children,       %w(config db db/sphinx log pids private system)
 
 set :cleanup_targets,       %w(log public/system tmp/pids)
-set :release_directories,   %w(log tmp)
+set :release_directories,   %w(config/private log tmp)
 
 set(:release_symlinks) do
   {
@@ -28,12 +28,13 @@ end
 
 set(:shared_symlinks) do
   {
-    'config/database.yml' => 'config/database.yml',
-    'config/sphinx.yml'   => 'config/sphinx.yml',
-    'db/sphinx'           => 'db/sphinx',
-    'log'                 => 'log',
-    'pids'                => 'tmp/pids',
-    'system'              => 'public/system'
+    'config/database.yml'    => 'config/database.yml',
+    'config/sphinx.yml'      => 'config/sphinx.yml',
+    'config/application.yml' => 'config/application.yml',
+    'db/sphinx'              => 'db/sphinx',
+    'log'                    => 'log',
+    'pids'                   => 'tmp/pids',
+    'system'                 => 'public/system'
   }
 end
 

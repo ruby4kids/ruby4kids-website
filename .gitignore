@@ -2,6 +2,7 @@
 .DS_Store
 .rvmrc
 *.swp
+config/application.yml
 config/database.yml
 config/sphinx.*conf
 config/sphinx.yml
